@@ -18,7 +18,7 @@ function printData(response) {
 }
 
 function printError(response) {
-  document.querySelector('p').innerText = response['error-type'];
+  document.querySelector('p').innerText = `Error: ${response}`;
 }
 
 getExchangeData();
