@@ -6,11 +6,16 @@ import './css/styles.css';
 async function getExchangeData() {
   const response = await ExchangeService.getData();
   if (response.result === 'success') {
-    printData(response);
+    return response;
   } 
   else {
     printError(response);
   }
+}
+
+async function convert(currency) {
+  const response = await getExchangeData();
+  printData(response, currency);
 }
 
 function printData(response) {
@@ -21,17 +26,12 @@ function printError(response) {
   document.querySelector('p').innerText = `Error: ${response}`;
 }
 
-getExchangeData();
+function handleForm(event) {
+  event.preventDefault();
+  const currency = document.querySelector('#currency').value;
+  convert(currency);
+}
 
-// function handleTriangleForm() {
-//   event.preventDefault();
-// }
-
-// function handleRectangleForm() {
-//   event.preventDefault();
-// }
-
-// window.addEventListener("load", function() {
-//   document.querySelector("#triangle-checker-form").addEventListener("submit", handleTriangleForm);
-//   this.document.querySelector("#rectangle-area-form").addEventListener("submit", handleRectangleForm);
-// });
+window.addEventListener("load", function() {
+  document.querySelector("form").addEventListener("submit", handleForm);
+});
