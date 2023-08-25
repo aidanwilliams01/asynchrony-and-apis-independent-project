@@ -13,13 +13,21 @@ async function getExchangeData() {
   }
 }
 
-async function convert(currency) {
+async function convert(amount, currency) {
   const response = await getExchangeData();
-  printData(response, currency);
+  if (!response.conversion_rates[`${currency}`]) {
+    const errorMessage = 'Currency does not exist.';
+    printError(errorMessage);
+  }
+  else {
+    let result = amount * response.conversion_rates[`${currency}`];
+    result = result.toFixed('2');
+    printData(amount, currency, result);
+  }
 }
 
-function printData(response) {
-  document.querySelector('p').innerText = response.base_code;
+function printData(amount, currency, result) {
+  document.querySelector('p').innerText = `$${amount} is ${result} ${currency}.`;
 }
 
 function printError(response) {
@@ -28,8 +36,9 @@ function printError(response) {
 
 function handleForm(event) {
   event.preventDefault();
-  const currency = document.querySelector('#currency').value;
-  convert(currency);
+  const amount = document.querySelector('#amount').value;
+  const currency = document.querySelector('#currency').value.toUpperCase();
+  convert(amount, currency);
 }
 
 window.addEventListener("load", function() {
