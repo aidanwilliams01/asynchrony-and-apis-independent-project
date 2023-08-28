@@ -1,6 +1,6 @@
-# (Application Name)
+# Currency Exchanger
 
-#### (Brief Description of Application)
+#### A USD currency exchanger.
 
 #### By Aidan Williams
 
@@ -12,17 +12,17 @@
 * _Node Package Manager_
 * _webpack_
 * _ESLint_
-* _Jest_
-* _Babel_
 
 ## Description
+
+A web app for the conversion of USD into any other currency.
 
 ## Setup/Installation Requirements
 
 * _Clone this repository to your desktop._
 * _Create a file named '.env' in the top level of the directory._
-* _Sign in or create an account at [url here]._
-* _Copy the API key at [url here] and place it in your .env file using the following format (without brackets):_ 
+* _Sign in or create an account at https://www.exchangerate-api.com/._
+* _Copy the API key at https://app.exchangerate-api.com/dashboard and place it in your .env file using the following format (without brackets):_ 
   * _`API_KEY=[your API key here]`_
 * _Run the following commands in the top level of the directory._
   * _`$ npm install` to install packages_
@@ -35,8 +35,7 @@
 
 ## Known Bugs
 
-* _Any known issues_
-* _should go here_
+* _No known bugs._
 
 ## License
 
