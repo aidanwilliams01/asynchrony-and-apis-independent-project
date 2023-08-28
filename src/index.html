@@ -5,9 +5,10 @@
 </head>
 <body>
   <h3>Currency Exchanger</h3>
-  <form>
+  <p>See <a href='https://en.wikipedia.org/wiki/ISO_4217'>https://en.wikipedia.org/wiki/ISO_4217</a> for a list of currency codes usable in this converter.</p>
+    <form>
     <label>USD to convert:</label>
-    <input id='amount' type="number" step=".01" required>
+    <input id='amount' type="number" step=".01" min="0" placeholder="0.00" required>
     <br>
     <label>Currency to convert to:</label>
     <input id='currency' type="text" placeholder='EUR, GBP, JPY, etc.' required>
