@@ -27,11 +27,11 @@ async function convert(amount, currency) {
 }
 
 function printData(amount, currency, result) {
-  document.querySelector('p').innerText = `$${amount} is ${result} ${currency}.`;
+  document.querySelector('h5').innerText = `${amount} USD = ${result} ${currency}`;
 }
 
 function printError(response) {
-  document.querySelector('p').innerText = `Error: ${response}`;
+  document.querySelector('h5').innerText = `Error: ${response}`;
 }
 
 function handleForm(event) {
